@@ -1,105 +1,123 @@
 <!--
   ============================================================
-  DANIEL NIBRAEV — EMAIL SIGNATURE (copy-paste source)
+  DANIEL IBRAEV — EMAIL SIGNATURE (copy-paste source)
   ------------------------------------------------------------
   HOW TO USE:  Open this file in a browser, select the whole
-  signature block, copy it, and paste it into your mail client's
+  signature card, copy it, and paste it into your mail client's
   signature editor (Gmail / Apple Mail / Outlook). Full guide
   is in README.md.
-
-  Replace these placeholders before use (or let the setup do it):
-    PROFILE_IMAGE_URL  ->  public https URL of your photo
-    WEBSITE_URL        ->  https://your-website.com
-    LINKEDIN_URL       ->  https://www.linkedin.com/in/your-handle
-    GITHUB_URL         ->  https://github.com/your-username
-    Daniel Nibraev     ->  your name
-    YOUR_TITLE         ->  your role / title
   ============================================================
 -->
 <style>
-  /* Hover animations — render in Apple Mail, Outlook (Mac) & browsers.
-     Gmail strips <style>, so it simply falls back to the static design. */
-  .sig-icon {
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  /* ===== Looped animations — play in Apple Mail, Outlook (Mac) & browsers.
+     Gmail strips <style>, so it falls back to the clean static card. ===== */
+
+  .sig-card{ animation: sigFloat 5s ease-in-out infinite; }
+  @keyframes sigFloat{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-4px);} }
+
+  /* moving light sweep across the card */
+  .sig-card{ position:relative; overflow:hidden; }
+  .sig-sweep{
+    position:absolute; top:0; left:-60%; width:45%; height:100%;
+    background:linear-gradient(115deg,transparent,rgba(34,211,238,.18),transparent);
+    transform:skewX(-18deg); animation: sigSweep 4.5s ease-in-out infinite; pointer-events:none;
   }
-  .sig-icon:hover {
-    transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 6px 16px rgba(13,148,136,.35);
-    background: #0d9488 !important;
+  @keyframes sigSweep{ 0%{ left:-60%; } 55%,100%{ left:130%; } }
+
+  /* rotating conic gradient ring behind the photo */
+  .sig-ring{ animation: sigSpin 5s linear infinite; }
+  @keyframes sigSpin{ to{ transform:rotate(360deg); } }
+
+  /* shimmering name */
+  .sig-name{
+    background-image:linear-gradient(90deg,#0f172a,#0d9488,#22d3ee,#0d9488,#0f172a);
+    background-size:200% auto; -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; animation: sigShimmer 5s linear infinite;
   }
-  .sig-icon:hover .sig-icon-svg { filter: brightness(0) invert(1); }
-  .sig-photo { transition: transform .35s ease; }
-  .sig-photo:hover { transform: scale(1.04) rotate(-1deg); }
-  .sig-name { background-size: 200% auto; }
-  @media (prefers-reduced-motion: no-preference) {
-    .sig-name {
-      background-image: linear-gradient(90deg,#0f172a,#0d9488,#0f172a);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: sigShimmer 6s linear infinite;
-    }
+  @keyframes sigShimmer{ to{ background-position:200% center; } }
+
+  /* floating + glowing social icons (staggered) */
+  .sig-icon{ transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+  .sig-i1{ animation: sigBob 3s ease-in-out infinite 0s;   }
+  .sig-i2{ animation: sigBob 3s ease-in-out infinite .35s; }
+  .sig-i3{ animation: sigBob 3s ease-in-out infinite .7s;  }
+  @keyframes sigBob{
+    0%,100%{ transform:translateY(0);   box-shadow:0 2px 6px rgba(15,23,42,.06); }
+    50%    { transform:translateY(-5px);box-shadow:0 10px 18px rgba(13,148,136,.28); }
   }
-  @keyframes sigShimmer { to { background-position: 200% center; } }
+  .sig-icon:hover{
+    transform:translateY(-6px) scale(1.12) !important;
+    background:#0d9488 !important; box-shadow:0 12px 22px rgba(13,148,136,.45) !important;
+  }
+  .sig-icon:hover .sig-icon-svg{ filter:brightness(0) invert(1); }
+
+  .sig-photo{ transition: transform .35s ease; }
+  .sig-photo:hover{ transform:scale(1.05); }
+
+  @media (prefers-reduced-motion: reduce){
+    .sig-card,.sig-ring,.sig-name,.sig-i1,.sig-i2,.sig-i3,.sig-sweep{ animation:none !important; }
+  }
 </style>
 
 <!-- ===================== SIGNATURE START ===================== -->
 <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;border-collapse:collapse;">
   <tr>
-    <td style="padding:18px 22px;background:#ffffff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 4px 20px rgba(15,23,42,.06);">
-      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+    <td class="sig-card" style="padding:20px 26px;background:#ffffff;border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 6px 24px rgba(15,23,42,.08);">
+      <span class="sig-sweep"></span>
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;position:relative;">
         <tr>
-          <!-- PHOTO -->
-          <td valign="middle" style="padding-right:20px;">
-            <img class="sig-photo" src="PROFILE_IMAGE_URL" width="96" height="96" alt="Daniel Nibraev"
-                 style="display:block;width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid #0d9488;">
+          <!-- PHOTO with rotating gradient ring -->
+          <td valign="middle" style="padding-right:22px;">
+            <span style="position:relative;display:inline-block;width:104px;height:104px;">
+              <span class="sig-ring" style="position:absolute;top:0;left:0;width:104px;height:104px;border-radius:50%;background:conic-gradient(from 0deg,#0d9488,#22d3ee,#0d9488,#22d3ee,#0d9488);display:block;"></span>
+              <img class="sig-photo" src="https://raw.githubusercontent.com/DanielIbraev/email-signature/main/assets/profile.png" width="94" height="94" alt="Daniel Ibraev"
+                   style="position:absolute;top:5px;left:5px;width:94px;height:94px;border-radius:50%;object-fit:cover;border:3px solid #ffffff;display:block;">
+            </span>
           </td>
 
           <!-- DIVIDER -->
-          <td valign="middle" style="padding-right:20px;">
-            <div style="width:2px;height:96px;background:linear-gradient(180deg,#0d9488,#0f172a);border-radius:2px;"></div>
+          <td valign="middle" style="padding-right:22px;">
+            <div style="width:2px;height:104px;background:linear-gradient(180deg,#0d9488,#0f172a);border-radius:2px;"></div>
           </td>
 
           <!-- DETAILS -->
-          <td valign="middle">
-            <div class="sig-name" style="font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-.3px;line-height:1.1;">
-              Daniel Nibraev
-            </div>
-            <div style="font-size:13px;font-weight:600;color:#0d9488;text-transform:uppercase;letter-spacing:1px;margin-top:4px;">
-              YOUR_TITLE
+          <td valign="middle" style="text-align:center;">
+            <div class="sig-name" style="font-size:24px;font-weight:800;color:#0f172a;letter-spacing:-.3px;line-height:1.1;text-align:center;">
+              Daniel Ibraev
             </div>
 
             <!-- EMAIL -->
-            <div style="margin-top:12px;">
+            <div style="margin-top:10px;text-align:center;">
               <a href="mailto:danielnibraev@gmail.com" style="font-size:14px;color:#334155;text-decoration:none;">
                 &#9993;&nbsp; danielnibraev@gmail.com
               </a>
             </div>
 
-            <!-- SOCIAL ICONS -->
-            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:14px;">
+            <!-- SOCIAL ICONS (centered) -->
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="border-collapse:collapse;margin:16px auto 0;">
               <tr>
                 <!-- Website -->
-                <td style="padding-right:10px;">
-                  <a href="WEBSITE_URL" style="text-decoration:none;">
-                    <span class="sig-icon" style="display:inline-block;width:36px;height:36px;background:#f1f5f9;border-radius:10px;text-align:center;line-height:36px;">
+                <td style="padding:0 6px;">
+                  <a href="https://danielibraev.com" style="text-decoration:none;">
+                    <span class="sig-icon sig-i1" style="display:inline-block;width:38px;height:38px;background:#f1f5f9;border-radius:11px;text-align:center;line-height:38px;">
                       <img class="sig-icon-svg" width="18" height="18" alt="Website" style="vertical-align:middle;"
                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMGYxNzJhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyMCIvPjxwYXRoIGQ9Ik0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwQTE1LjMgMTUuMyAwIDAgMSAxMiAyeiIvPjwvc3ZnPg==">
                     </span>
                   </a>
                 </td>
                 <!-- LinkedIn -->
-                <td style="padding-right:10px;">
-                  <a href="LINKEDIN_URL" style="text-decoration:none;">
-                    <span class="sig-icon" style="display:inline-block;width:36px;height:36px;background:#f1f5f9;border-radius:10px;text-align:center;line-height:36px;">
+                <td style="padding:0 6px;">
+                  <a href="https://www.linkedin.com/in/daniel-ibraev/" style="text-decoration:none;">
+                    <span class="sig-icon sig-i2" style="display:inline-block;width:38px;height:38px;background:#f1f5f9;border-radius:11px;text-align:center;line-height:38px;">
                       <img class="sig-icon-svg" width="18" height="18" alt="LinkedIn" style="vertical-align:middle;"
                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzBmMTcyYSI+PHBhdGggZD0iTTIwLjQ1MiAyMC40NTJoLTMuNTU0di01LjU2OWMwLTEuMzI4LS4wMjctMy4wMzctMS44NTItMy4wMzctMS44NTMgMC0yLjEzNiAxLjQ0NS0yLjEzNiAyLjkzOXY1LjY2N0g5LjM1OFY5aDMuNDE0djEuNTYxaC4wNDZjLjQ3Ni0uOSAxLjYzNy0xLjg1IDMuMzctMS44NSAzLjYwMSAwIDQuMjY3IDIuMzcgNC4yNjcgNS40NTV2Ni4yODZ6TTUuMzM3IDcuNDMzYy0xLjE0NCAwLTIuMDYzLS45MjYtMi4wNjMtMi4wNjUgMC0xLjEzOC45Mi0yLjA2MyAyLjA2My0yLjA2MyAxLjE0IDAgMi4wNjQuOTI1IDIuMDY0IDIuMDYzIDAgMS4xMzktLjkyNSAyLjA2NS0yLjA2NCAyLjA2NXptMS43ODIgMTMuMDE5SDMuNTU1VjloMy41NjR2MTEuNDUyek0yMi4yMjUgMEgxLjc3MUMuNzkyIDAgMCAuNzc0IDAgMS43Mjl2MjAuNTQyQzAgMjMuMjI3Ljc5MiAyNCAxLjc3MSAyNGgyMC40NTFDMjMuMiAyNCAyNCAyMy4yMjcgMjQgMjIuMjcxVjEuNzI5QzI0IC43NzQgMjMuMiAwIDIyLjIyMiAweiIvPjwvc3ZnPg==">
                     </span>
                   </a>
                 </td>
                 <!-- GitHub -->
-                <td>
-                  <a href="GITHUB_URL" style="text-decoration:none;">
-                    <span class="sig-icon" style="display:inline-block;width:36px;height:36px;background:#f1f5f9;border-radius:10px;text-align:center;line-height:36px;">
+                <td style="padding:0 6px;">
+                  <a href="https://github.com/DanielIbraev" style="text-decoration:none;">
+                    <span class="sig-icon sig-i3" style="display:inline-block;width:38px;height:38px;background:#f1f5f9;border-radius:11px;text-align:center;line-height:38px;">
                       <img class="sig-icon-svg" width="18" height="18" alt="GitHub" style="vertical-align:middle;"
                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzBmMTcyYSI+PHBhdGggZD0iTTEyIC4yOTdjLTYuNjMgMC0xMiA1LjM3My0xMiAxMiAwIDUuMzAzIDMuNDM4IDkuOCA4LjIwNSAxMS4zODUuNi4xMTMuODItLjI1OC44Mi0uNTc3IDAtLjI4NS0uMDEtMS4wNC0uMDE1LTIuMDQtMy4zMzguNzI0LTQuMDQyLTEuNjEtNC4wNDItMS42MUM0LjQyMiAxOC4wNyAzLjYzMyAxNy43IDMuNjMzIDE3LjdjLTEuMDg3LS43NDQuMDg0LS43MjkuMDg0LS43MjkgMS4yMDUuMDg0IDEuODM4IDEuMjM2IDEuODM4IDEuMjM2IDEuMDcgMS44MzUgMi44MDkgMS4zMDUgMy40OTUuOTk4LjEwOC0uNzc2LjQxNy0xLjMwNS43Ni0xLjYwNS0yLjY2NS0uMy01LjQ2Ni0xLjMzMi01LjQ2Ni01LjkzIDAtMS4zMS40NjUtMi4zOCAxLjIzNS0zLjIyLS4xMzUtLjMwMy0uNTQtMS41MjMuMTA1LTMuMTc2IDAgMCAxLjAwNS0uMzIyIDMuMy0xLjIzLjk2LS4yNjcgMS45OC0uMzk5IDMtLjQwNSAxLjAyLjAwNiAyLjA0LjEzOCAzIC40MDUgMi4yOC0uOTA4IDMuMjg1LS42IDMuMjg1LS42LjY0NSAxLjY1My4yNCAyLjg3My4xMiAzLjE3Ni43NjUuODQgMS4yMyAxLjkxIDEuMjMgMy4yMiAwIDQuNjEtMi44MDUgNS42MjUtNS40NzUgNS45Mi40Mi4zNi44MSAxLjA5Ni44MSAyLjIyIDAgMS42MDYtLjAxNSAyLjg5Ni0uMDE1IDMuMjg2IDAgLjMxNS4yMS42OS44MjUuNTdDMjAuNTY1IDIyLjA5MiAyNCAxNy41OTIgMjQgMTIuMjk3YzAtNi42MjctNS4zNzMtMTItMTItMTIiLz48L3N2Zz4=">
                     </span>
