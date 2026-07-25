@@ -1,10 +1,18 @@
 <!--
-  ============================================================
-  DANIEL IBRAEV — EMAIL SIGNATURE (copy-paste source)
-  ------------------------------------------------------------
-  Open in a browser, Select All (Cmd/Ctrl-A), Copy, then paste
-  into your mail client's signature editor. Full guide: README.md
-  ============================================================
+  ==================================================================
+  EMAIL SIGNATURE  ·  full step-by-step guide is in README.md
+  ------------------------------------------------------------------
+  MAKING IT YOURS?  Change ONLY these 6 things (all further down):
+
+    1. Your name .............. search for:  Daniel Ibraev
+    2. Your title ............. search for:  Founder & CEO of Connex
+    3. Your email (2 places) .. search for:  danielnibraev@gmail.com
+    4. Your website ........... search for:  danielibraev.com
+    5. Your LinkedIn .......... search for:  linkedin.com/in/daniel-ibraev
+    6. Your photo ............. see the line marked  <<< CHANGE USERNAME
+
+  Don't touch anything else. Then follow README.md to add it to Gmail.
+  ==================================================================
 -->
 <style>
   /* ================= ENTRANCE (plays once) ================= */
@@ -24,9 +32,10 @@
   .sig-r2{ animation: sigRailIn .7s ease-out .48s both; }
   .sig-r3{ animation: sigRailIn .7s ease-out .61s both; }
   .sig-name{ animation: sigRise .8s ease-out .42s both; }
-  .sig-hairline{ animation: sigRise .8s ease-out .52s both; }
-  .sig-line1{ animation: sigRise .8s ease-out .60s both; }
-  .sig-line2{ animation: sigRise .8s ease-out .70s both; }
+  .sig-title{ animation: sigRise .8s ease-out .50s both; }
+  .sig-hairline{ animation: sigRise .8s ease-out .58s both; }
+  .sig-line1{ animation: sigRise .8s ease-out .66s both; }
+  .sig-line2{ animation: sigRise .8s ease-out .74s both; }
 
   .sig-photo-wrap{ animation: sigPhotoIn 1s cubic-bezier(.16,1,.3,1) .22s both, sigFloat 7s ease-in-out 1.6s infinite; }
   /* 'both' fill = stays off-screen during the delay, so no static streak before the first sweep */
@@ -38,7 +47,7 @@
   .sig-photo-wrap:hover .sig-photo{ transform:scale(1.04); }
 
   @media (prefers-reduced-motion: reduce){
-    .sig-card,.sig-rail-item,.sig-name,.sig-line1,.sig-line2,.sig-hairline,.sig-photo-wrap,.sig-sheen{ animation:none !important; opacity:1 !important; }
+    .sig-card,.sig-rail-item,.sig-name,.sig-title,.sig-line1,.sig-line2,.sig-hairline,.sig-photo-wrap,.sig-sheen{ animation:none !important; opacity:1 !important; }
   }
 </style>
 
@@ -75,22 +84,25 @@
           </td>
 
           <!-- ===== MIDDLE: identity ===== -->
-          <td valign="middle" style="padding-right:30px;">
-            <div class="sig-name" style="font-size:23px;font-weight:800;color:#0f172a;letter-spacing:-.4px;line-height:1.15;white-space:nowrap;">
+          <td valign="middle" style="padding-right:38px;white-space:nowrap;">
+            <div class="sig-name" style="font-size:23px;font-weight:800;color:#0f172a;letter-spacing:-.4px;line-height:1.2;white-space:nowrap;">
               Daniel Ibraev
               <img width="17" height="17" alt="" style="vertical-align:-2px;margin-left:5px;"
                 src="https://raw.githubusercontent.com/DanielIbraev/email-signature/main/assets/icons/verified.png">
             </div>
 
-            <div class="sig-hairline" style="width:40px;height:3px;border-radius:3px;background:linear-gradient(90deg,#2563eb,#60a5fa);margin:12px 0;"></div>
+            <div class="sig-title" style="font-size:13.5px;font-weight:600;color:#64748b;letter-spacing:.1px;margin-top:6px;white-space:nowrap;">Founder &amp; CEO of Connex</div>
 
-            <div class="sig-line1" style="font-size:14px;line-height:22px;"><a href="mailto:danielnibraev@gmail.com" style="color:#475569;text-decoration:none;">danielnibraev@gmail.com</a></div>
-            <div class="sig-line2" style="font-size:14px;line-height:22px;"><a href="https://danielibraev.com" style="color:#475569;text-decoration:none;">danielibraev.com</a></div>
+            <div class="sig-hairline" style="width:44px;height:3px;border-radius:3px;background:linear-gradient(90deg,#2563eb,#60a5fa);margin:15px 0;"></div>
+
+            <div class="sig-line1" style="font-size:14px;line-height:23px;"><a href="mailto:danielnibraev@gmail.com" style="color:#475569;text-decoration:none;">danielnibraev@gmail.com</a></div>
+            <div class="sig-line2" style="font-size:14px;line-height:23px;"><a href="https://danielibraev.com" style="color:#475569;text-decoration:none;">danielibraev.com</a></div>
           </td>
 
           <!-- ===== RIGHT: portrait ===== -->
           <td valign="middle">
             <div class="sig-photo-wrap" style="position:relative;width:132px;height:150px;overflow:hidden;border-radius:16px;">
+              <!-- <<< CHANGE USERNAME: replace "DanielIbraev" below with YOUR GitHub username (upload your photo as assets/profile.png first) -->
               <img class="sig-photo" src="https://raw.githubusercontent.com/DanielIbraev/email-signature/main/assets/profile.png" alt="Daniel Ibraev"
                    style="display:block;width:132px;height:150px;object-fit:cover;">
               <span class="sig-sheen" style="position:absolute;top:-30px;bottom:-30px;left:0;width:42px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);"></span>
